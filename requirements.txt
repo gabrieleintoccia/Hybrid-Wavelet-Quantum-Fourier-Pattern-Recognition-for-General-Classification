@@ -1,0 +1,9 @@
+numpy>=2.0
+scipy>=1.13
+pandas>=2.2
+matplotlib>=3.9
+opencv-python>=4.10
+PyWavelets>=1.6
+scikit-learn>=1.5
+qiskit>=1.2
+qiskit-aer>=0.15

@@ -15,7 +15,7 @@ def qft_features(vec, shots=512):
     vec = normalize_amplitudes(vec)
 
     if np.linalg.norm(vec) == 0:
-        raise ValueError("Vettore nullo dopo normalizzazione")
+        raise ValueError("Null vector after normalization")
 
     n_qubits = int(np.log2(len(vec)))
 

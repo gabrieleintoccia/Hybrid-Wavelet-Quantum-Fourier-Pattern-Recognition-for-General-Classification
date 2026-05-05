@@ -16,16 +16,16 @@ def load_mat_dataset(path):
     feature_key = next((k for k in possible_feature_keys if k in data), None)
     label_key = next((k for k in possible_label_keys if k in data), None)
 
-    print("Chiavi disponibili nel dataset:", list(data.keys()))
+    print("Keys available in the dataset:", list(data.keys()))
 
     if feature_key is None:
         raise KeyError(
-            f"Nessuna chiave feature trovata. Disponibili: {list(data.keys())}"
+            f"No feature keys found. Available: {list(data.keys())}"
         )
 
     if label_key is None:
         raise KeyError(
-            f"Nessuna chiave label trovata. Disponibili: {list(data.keys())}"
+            f"No label keys found. Available: {list(data.keys())}"
         )
 
     X = np.array(data[feature_key])

@@ -6,7 +6,7 @@ def infer_image_shape(length):
     side = int(np.sqrt(length))
     if side * side != length:
         raise ValueError(
-            f"Impossibile inferire immagine quadrata da vettore di lunghezza {length}"
+            f"Unable to insert square image from length vector {length}"
         )
     return (side, side)
 

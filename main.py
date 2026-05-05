@@ -12,7 +12,7 @@ from src.evaluation import evaluate_model
 # CONFIGURAZIONE DIRETTA
 # ==============================
 DATASET_PATH = Path(
-    "C:/Users/gabri/Desktop/python/quantum_pattern_recognition/data/Yale_32x32.mat"
+    " "
 )
 
 METHOD = "hybrid"      # qft / fft / wavelet / hybrid
@@ -44,15 +44,15 @@ def extract_features(X, method):
                     qft_features(reduced)
                 ])
             else:
-                raise ValueError(f"Metodo sconosciuto: {method}")
+                raise ValueError(f"Unknown method: {method}")
 
             features.append(feat)
 
             if idx % 50 == 0:
-                print(f"Processati {idx}/{len(X)} campioni...")
+                print(f"Sample {idx}/{len(X)} processed...")
 
         except Exception as e:
-            print(f"Errore sul campione {idx}: {e}")
+            print(f"Sample error {idx}: {e}")
 
     return np.array(features)
 
@@ -67,9 +67,9 @@ def main():
     print("Caricamento dataset...")
     X, y = load_mat_dataset(DATASET_PATH)
 
-    print(f"Dataset caricato: {X.shape}, Labels: {y.shape}")
+    print(f"Dataset loaded: {X.shape}, Labels: {y.shape}")
 
-    print("Estrazione features...")
+    print("features extraction...")
     features = extract_features(X, METHOD)
 
     print(f"Features shape: {features.shape}")
@@ -79,8 +79,8 @@ def main():
     print("Valutazione modello...")
     results = evaluate_model(features, y[:len(features)], clf)
 
-    print("\n===== RISULTATI =====")
-    print(f"Metodo: {METHOD}")
+    print("\n===== RESULTS =====")
+    print(f"Method: {METHOD}")
     print(f"Classifier: {CLASSIFIER}")
     print(f"Accuracy: {results['accuracy']:.4f}")
     print(results["report"])
